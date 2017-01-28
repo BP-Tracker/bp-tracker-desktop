@@ -1,0 +1,38 @@
+extends layout
+
+block content
+
+  div.container
+
+    div.page-header
+      h1 Login
+
+    if errors
+      each error in errors
+        div.alert.alert-danger
+          span #{error.error}
+    form.login-form.form-horizontal(method='post', role='form')
+      input(name='_csrf', type='hidden', value=csrfToken)
+
+      div.form-group
+        label.col-sm-2 Email
+        div.col-sm-4
+          input.form-control(
+            placeholder='Particle.io account email',
+            required=true,
+            name='email',
+            type='text',
+            value='')
+      div.form-group
+        label.col-sm-2 Password
+        div.col-sm-4
+          input.form-control(placeholder='Particle.io accout password',
+            required=true,
+            name='password',
+            type='password',
+            value='')
+      div.form-group
+        div.col-sm-offset-2.col-sm-4
+          button.login.btn.btn-primary(type='submit') Log In
+      div.pull-right
+        a(href="/") Return to home page

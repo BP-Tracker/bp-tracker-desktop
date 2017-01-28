@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require('fs');
+
+// Create a .env file from the template
+if(!fs.existsSync('./.env')){
+  console.log("Creating .env from template (.env.example)");
+  fs.createReadStream('./.env.example')
+    .pipe(fs.createWriteStream('./.env'));
+}

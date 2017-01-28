@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div.container
+    div.jumbotron
+      h1 Hello!
+
+      if user
+        p Welcome,
+        p
+          a.small(href="profile") Edit my profile
+        form(action='/logout', method='POST')
+          button.btn.btn-default(type="submit") Logout
+      else
+        p Welcome to my app, ready to get started?
+        p
+          a.btn.btn-primary(href="/login") Login now
+        p
+          span.small Don't have a #[a(href="//particle.io") particle.io] account?
+          span &nbsp;
+          a.small(href="//build.particle.io/signup") Register now

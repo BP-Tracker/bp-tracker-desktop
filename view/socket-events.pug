@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  p Hello
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+  script.
+    console.log('test');
+    var socket = io();
+    document.socket = socket;
+
+    socket.on('event', function(data){
+      console.log('on events', data);
+    });
+
+    socket.on('apperror', function(reason){
+      console.error('application error:', reason);
+    });
+
+    socket.on('error', function(reason){
+      console.error('socket error:', reason);
+    });
+
+    socket.emit('request', 'devices', 'ddd');
+
+    socket.emit('request', 'devices', function(devices){
+      console.log('devices', devices);
+    },function(err){
+      console.log('err??', err);s
+    });
+
+
+    //socket.emit('request', 'value1');
