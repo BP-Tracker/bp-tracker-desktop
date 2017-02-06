@@ -1,7 +1,7 @@
 BP Tracker Desktop
 ==========
 
-A desktop client for monitoring and tracking assets such as a motorcycle.
+A web client for monitoring and tracking assets using the BP Tracker firmware.
 
 
 [![Build Unstable][shield-unstable]](#)
@@ -11,46 +11,41 @@ A desktop client for monitoring and tracking assets such as a motorcycle.
 
 Table Of Contents
 -----------------
-
-- [Intro](#intro)
-- [Features](#features)
 - [Requirements](#requirements)
 - [Usage](#usage)
-- [Developer Notes](#developer-notes)
+- [Screentshots](#screenshots)
 - [License](#license)
-
-Intro
--------
-
-
-Features
--------
 
 
 Requirements
 -------
-BP Tracker requires the following hardware:
-
-  * particle.io [electron][electron] core (tested with 0.5.3 firmware)
-  * [AssetTracker][assetrackershield] shield (tested with v002)
-  * [particle cli][particlecli]
+  * BP Tracker [firmware][bp-tracker-particle] 0.2+
+  * [Node.js][nodejs] 5.0+
+  * [npm][npm] (comes with Node.js)
 
 Usage
 -----
 
+```bash
+git clone https://github.com/BP-Tracker/bp-tracker-desktop.git
+cd bp-tracker-desktop
+npm install
+NODE_ENV=production npm start
+```
 
-Developer Notes
+By default, the application will be served at `http://localhost:3101`
+
+In development mode (using [nodemon][nodemon]):
+
+```bash
+npm install -g nodemon
+DEBUG=dashboard:* nodemon --ignore tmp/
+```
+
+Screenshots
 -----
 
-Running:  `DEBUG=dashboard:* npm start`
-
-npm install -g nodemon
-or DEBUG=dashboard:* nodemon --ignore tmp/
-
-Production Notes:
---trace-sync-io
-NODE_ENV=production npm start
-
+<img width="100%" src="https://rawgit.com/BP-Tracker/bp-tracker-desktop/master/docs/images/dashboard.jpg" alt="Demo Screenshot" />
 
 
 License
@@ -63,9 +58,9 @@ Copyright &copy; 2017 Derek Benda
 [shield-unstable]: https://img.shields.io/badge/build-unstable-red.svg
 [shield-license]: https://img.shields.io/badge/license-MIT-blue.svg
 
-[particlecli]:https://docs.particle.io/guide/getting-started/connect/electron/
-[particleio]: https://www.particle.io/
-[electron]: https://www.particle.io/products/hardware/electron-cellular-dev-kit
-[cloudapi]: https://docs.particle.io/reference/api/
+[bp-tracker-particle]:https://github.com/BP-Tracker/bp-tracker-particle
+[nodejs]: https://nodejs.org
+[npm]: https://www.npmjs.com
+[nodemon]: https://nodemon.io/
 [assetrackershield]: https://docs.particle.io/datasheets/particle-shields/#electron-asset-tracker
 [info-license]: LICENSE

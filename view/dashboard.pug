@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  script(type='text/javascript', src='/js/main.js')
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+  script(type='text/javascript', src='/js/bpt/dashboard.js')
 
   // div.page-header
     h2 Dashboard
@@ -15,42 +16,8 @@ block content
     div.row
       div.col-md-8
         div(class='')
-          div(id='geo-map')
-      div.col-md-4
-        div(class='panel panel-primary')
-          div(class='panel-heading') Events <a class="pull-right" href="#"><span style="color:white;" class="glyphicon glyphicon glyphicon-erase" aria-hidden="true"></span></a>
-          div(class='panel-body bpt-event-container')
-            ul(class='nav nav-pills')
-              li(role='presentation', class='active')
-                a(href="#") All <span class="badge">42</span>
-              li(role='presentation', class='')
-                a(href="#") Lippy <span class="badge">0</span>
-              li(role='presentation', class='')
-                a(href="#") Pippy <span class="badge">12</span>
-            div(style='height:100%; overflow:auto;')
-              div(class='list-group bpt-event-items')
-                a(href='#', class='list-group-item')
-                  span(class="label label-default") Pippy
-                  span(class="pull-right" style="font-size:85%;color: #d8d8d8") 12:42:35 PM
-                  div(class='list-group-item-heading')
-                    h4(class='list-group-item-text') bpt:state <small>5</small>
-                a(href='#', class='list-group-item')
-                  span(class="label label-default") Zippy
-                  span(class="pull-right" style="font-size:85%;color: #d8d8d8") 12:42:35 PM
-                  div(class='list-group-item-heading')
-                    p(class='list-group-item-text') bpt:state - 5
-                a(href='#', class='list-group-item') Item 2
-                a(href='#', class='list-group-item') Item 3
-                a(href='#', class='list-group-item') Item 4
-                a(href='#', class='list-group-item') Item 2
-                a(href='#', class='list-group-item') Item 2
-                a(href='#', class='list-group-item') Item 2
-                a(href='#', class='list-group-item') Item 2
-                a(href='#', class='list-group-item') Item 2
+          div(id='map-panel')
 
-                // a(href='#', class='list-group-item')
-                  div
-                    span(class="label label-default") Lippy
-                    span(class="pull-right" style="font-size:85%;color: #d8d8d8") 12:42:35
-                    h5(class="list-group-item-heading") bpt:state
-                    p(class='list-group-item-text') 6
+      div.col-md-4
+        div(id='alert-panel')
+        div(id='event-panel')

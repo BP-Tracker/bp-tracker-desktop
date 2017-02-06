@@ -44,7 +44,6 @@ function App(opts){
   // controllers
   app.use('/', require('./controller/index'));
   app.use('/users', require('./controller/users'));
-  app.use('/events', require('./controller/socket-events'));
   app.use('/profile', require('./controller/profile'));
   app.use('/login', require('./controller/login'));
   app.use('/dashboard', require('./controller/dashboard'));
